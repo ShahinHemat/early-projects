@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Exercise 2a)
+
+        function reverseString(str, cb) {
+            setTimeout(function () {
+                cb(str.split('').reverse().join(''));
+            }, 5000);
+        };
+
+
+        // Exercise 2b) 
+
+        function getBatteryLevelSync() {
+            return Math.floor(Math.random() * 101);
+        }
+
+        console.log(getBatteryLevelSync()); // Logs out a number right away
+
+        function getBatteryLevel(callback) {
+            setTimeout(() => {
+                callback(Math.floor(Math.random() * 101));
+            }, 1000);
+        }
+
+        getBatteryLevel(function (currentBatteryLevel) {
+            console.log(currentBatteryLevel); // Logs out a number after 1 second
+        })
+
+        function getBatteryLevelAsync() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(Math.floor(Math.random() * 101));
+                }, 1000);
+            });
+        }
+
+        async function batteryLevelPromiseResolved() {
+            let batteryLevel = await getBatteryLevelAsync();
+            console.log(batteryLevel);
+        }
+
+        batteryLevelPromiseResolved(); // Logs out a number after 1 second
+
+
+        // Exercise 2c)
+
+        async function printOutLat() {
+
+            try {
+                let fetchData = await fetch('https://www.vullum.io/academy/places.json');
+                let data = await fetchData.json();
+                data.forEach(function (id) {
+                    console.log(id.coordinates.latitude);
+                })
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        printOutLat(); //prints out the latitude
+
+    </script>
+</body>
+
+</html>

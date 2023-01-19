@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lightgray;
+        }
+
+        .container {
+            height: 50px;
+            width: 100vw;
+            background-color: aqua;
+        }
+
+        #navheader {
+            color: red;
+            text-align: center;
+            position: relative;
+            top: 7px;
+        }
+
+        .pokemons {
+            background-color: white;
+            width: 30%;
+            text-align: center;
+            font-size: 15px;
+
+        }
+
+        .pokemons:hover {
+            background-color: lightskyblue;
+        }
+
+        #stick {
+            position: fixed;
+        }
+
+        #myInput {
+            position: relative;
+            left: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 id="navheader">Welcome to Shahin's Pokedex!</h1>
+    </div>
+
+    <div id="main">
+        <div id="stick">
+            <input type="text" id="myInput" placeholder="Search for Pokemons">
+        </div>
+    </div>
+
+
+
+    <script>
+
+
+        let mainDiv = document.getElementById('main');
+
+        // Extract info about all pokemons as objects
+        async function getAllPokemons() {
+            const extractApi = await fetch('https://pokeapi.co/api/v2/pokemon?limit=50');
+            const pokemons = await extractApi.json();
+            const objectWithAllNames = pokemons.results;
+            return Promise.all(objectWithAllNames.map(async function (pokemon) {
+                let response = await fetch(pokemon.url);
+                let data = await response.json();
+                return data;
+            }));
+        }
+
+
+
+        // Main Flow 
+
+        async function main() {
+
+            let allPokemons = await getAllPokemons();
+
+            // For each of the objects containing all info about the individual pokemon do something:
+            allPokemons.forEach(function (pokemon) {
+                const pokemonDiv = document.createElement('div');
+                pokemonDiv.innerHTML = `
+                <figure class='pokemons'>
+                <img src='${pokemon.sprites.front_default}'>                 
+                <figcaption id="figcaption"><b>Name:</b> ${pokemon.name} <br> <b>Signature move:</b> ${pokemon.moves[0].move.name}</figcaption>
+                </figure>
+                `;
+                mainDiv.append(pokemonDiv);
+            })
+
+
+        }
+
+        main();
+
+
+
+        let searchInput = document.getElementById('myInput');
+
+        // Listen for changes in the search input field
+        searchInput.addEventListener('input', function () {
+            // Get the search term the user entered
+            let searchTerm = searchInput.value.toLowerCase();
+
+            // Get all the pokemon div elements
+            let pokemonDivs = document.querySelectorAll('.pokemons');
+
+            // Loop through all the pokemon divs
+            for (let pokemonDiv of pokemonDivs) {
+                // Get the name of the pokemon
+                let pokemonName = pokemonDiv.querySelector('#figcaption').textContent.toLowerCase();
+
+                // If the search term is included in the pokemon's name, show the pokemon div, otherwise hide it
+                if (pokemonName.includes(searchTerm)) {
+                    pokemonDiv.style.display = 'block';
+                } else {
+                    pokemonDiv.style.display = 'none';
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

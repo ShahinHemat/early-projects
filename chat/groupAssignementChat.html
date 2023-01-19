@@ -1,0 +1,141 @@
+<!-- https://canvas.academy.se/courses/507/files/136267?module_item_id=66145 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Academy Chat</h1>
+    <input id="nickname" type="text" placeholder="Nickname">
+    <input id='msg' type="text" placeholder="Compose Message" style="display:block">
+    <div id="main"></div>
+
+    <script>
+
+        let mainNode = document.getElementById('main')
+
+
+
+        //Function for unpacking API
+        async function getJSON(url) {
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        };
+
+        let userName = document.getElementById('nickname');
+        let postMessage = document.getElementById('msg');
+
+
+        //Posting message to API
+        async function postMessageToApi() {
+            await fetch('https://react-workshop-chat.herokuapp.com/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: `${userName.value}`,
+                    text: `${postMessage.value}`
+                })
+            })
+
+            return undefined;
+        }
+
+
+        //Function for fetching API
+        async function apiContent() {
+            getJson(url).then(function (res) {
+                return res;
+            })
+        };
+
+        //Displaying content of API in HTML
+        async function renderApi() {
+            let res = await getJSON('https://react-workshop-chat.herokuapp.com/chat');
+
+            mainNode.innerHTML = '';
+            //Display content of API on Website 
+            for (let i = 0; i < 50; i++) {
+                let listElement = document.createElement('li');
+                listElement.innerHTML = res[i].name + ': ' + res[i].text;
+                mainNode.append(listElement);
+
+            }
+
+        }
+
+
+        function main() {
+            postMessage.addEventListener('keypress', async function (event) {
+                if (event.keyCode === 13) {
+                    await postMessageToApi();
+                    /* let newMessage = document.createElement('li');
+                    newMessage.innerHTML = postMessage.value;  */
+                    renderApi();
+                }
+            });
+
+            renderApi();
+
+            setInterval(function () {
+                renderApi();
+            }, 1000)
+        }
+
+        main();
+
+
+        
+
+
+
+
+
+
+
+
+        /* api.then(function (res) {
+            for (let i = 0; i < 50; i++) {
+                let listElement = document.createElement('li');
+                listElement.innerHTML = res[i].name + ': ' + res[i].text;
+                mainNode.append(listElement);
+
+            }
+        }); */
+
+
+        /* const data = { username: 'example' };
+
+        fetch('https://react-workshop-chat.herokuapp.com/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            }); */
+
+
+
+        /* GET /chat/get/json HTTP/1.1
+        Host: herokuapp.com
+        Accept: application/json */
+
+    </script>
+</body>
+
+</html>

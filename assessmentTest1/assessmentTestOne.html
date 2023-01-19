@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Test One</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        .container {
+            max-width: 700px;
+            display: flex;
+            margin: 20px auto;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .image {
+            max-width: 350px;
+
+
+        }
+
+        .right-side {
+            margin-left: 10px;
+            margin-right: 10px;
+            width: 350px;
+        }
+
+        .prices-container {
+            display: flex;
+            margin-top: 60px;
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .prices {
+            flex-grow: 1;
+        }
+
+        #previous-price {
+            color: red;
+            text-decoration: line-through;
+            font-size: 25px;
+            padding-top: 10px;
+        }
+
+        #new-price {
+            color: rgb(103, 98, 98);
+            font-size: 25px;
+            padding-top: 10px;
+        }
+
+        #button {
+            text-align: center;
+            background-color: rgb(10, 124, 10);
+            font-size: 20px;
+            color: white;
+
+        }
+
+        .heading {
+            color: rgb(103, 98, 98);
+        }
+
+
+        @media only screen and (max-width: 718px) {
+
+            .container {
+                display: block;
+                max-width: 400px;
+            }
+
+            .heading-container {
+                position: relative;
+                top: -200px;
+                left: 30px;
+
+            }
+
+            .image {
+                position: relative;
+                top: 100px;
+            }
+
+            .prices-container {
+                position: relative;
+                left: 100px;
+                top: -50px;
+            }
+
+            #button {
+                position: relative;
+                top: 60px;
+                right: 150px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="image-container">
+            <img class="image" src="images/skogsport.jpeg" alt="Oransje og blå hengekøye">
+        </div>
+
+        <div class="right-side">
+            <div class="heading-container">
+                <h1 class="heading">Ticket to the moon - Hengekøye</h1>
+            </div>
+
+            <div class="prices-container">
+                <div class="prices" id="previous-price">543,-</div>
+                <div class="prices" id="new-price">324,-</div>
+                <button class="prices" id="button">Kjøp</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

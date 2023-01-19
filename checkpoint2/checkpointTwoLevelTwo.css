@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    
+}
+
+body {
+    margin:0px;
+}
+
+
+
+/*--- HEADER START---*/ 
+
+
+.header-container {
+    background-color: dodgerblue;
+    width: 100%;
+    height: 75px;
+}
+
+#header {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    left: 5px;
+    top: 25px;   
+}
+
+
+/*--- HEADER END ---*/ 
+
+
+
+
+
+/*--- NAVIGATION START ---*/ 
+
+
+.navigation {
+    background-color: goldenrod;
+    margin: -15px auto 0px auto;
+    padding: 15px;
+    max-width: 400px;
+    display: flex;
+    position: sticky;
+    top: 0px;  
+}
+
+.nav-elements {
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+/*--- NAVIGATION END---*/ 
+
+
+/*--- TEXT START  ---*/
+
+
+.text-container {
+    max-width: 600px;
+    margin: 5px auto 10px auto;
+}
+
+#author {
+    margin-bottom: 21px;
+}
+
+#second-last-p {
+    margin-bottom: 21px;
+}
+
+
+/*--- TEXT END  ---*/
+
+
+/*--- IMAGES START ---*/ 
+
+
+.img-one {
+    max-width: 600px;
+    display: block;
+    margin: auto;
+}
+
+.img-two {
+    max-width: 100%;
+}
+
+
+/*--- IMAGES END ---*/ 
+
+
+/*--- FOOTER START ---*/ 
+
+
+.footer-container {
+    background-color: dodgerblue;
+    width: 100%;
+}
+
+.footer {
+    color: white;
+    padding: 5px;
+    font-size: 13px;
+    text-align: center;
+}
+
+
+/*--- FOOTER END ---*/ 
+
+
+
+/*--- PHONE SCREEN START ---*/ 
+
+@media only screen and (max-width: 500px) {
+
+    .navigation {
+        margin-top: 0px;
+        max-width: 500px;
+    }
+
+    .img-one {
+        max-width: 500px;
+    }
+
+}
+
+
+/*--- PHONE SCREEN END ---*/

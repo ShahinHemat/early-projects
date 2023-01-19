@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Cars</title>
+</head>
+
+<body>
+    <div id="main"></div>
+
+    <script>
+
+        // Exercise 1a)
+
+        const mainDiv = document.getElementById('main');
+
+        const heading = document.createElement('h1');
+        heading.innerHTML = 'Long range electric cars';
+
+        const ul = document.createElement('ul');
+
+        const liOne = document.createElement('li');
+        liOne.setAttribute('class', 'car');
+        liOne.innerHTML = 'Tesla Model 3';
+        const liTwo = document.createElement('li');
+        liTwo.setAttribute('class', 'car');
+        liTwo.innerHTML = 'Ford Mustang Mach-E';
+        const liThree = document.createElement('li');
+        liThree.setAttribute('class', 'car');
+        liThree.innerHTML = 'Tesla Model S';
+
+        ul.append(liOne, liTwo, liThree);
+
+        mainDiv.append(heading, ul);
+
+
+        // Exercise 1b)
+
+        const inputField = document.createElement('input');
+        inputField.setAttribute('placeholder', 'Write a car name here');
+        inputField.setAttribute('id', 'inputField');
+
+        const button = document.createElement('button');
+        button.setAttribute('id', 'myButton');
+        button.innerHTML = 'Add to list';
+
+        button.addEventListener('click', function () {
+            const newLi = document.createElement('li');
+            newLi.setAttribute('class', 'car');
+            newLi.innerHTML = inputField.value;
+            ul.append(newLi);
+        })
+
+        mainDiv.append(inputField, button);
+
+
+        // Exercise 1c) 
+
+        ul.addEventListener('click', function (event) {
+            event.target.style.color = 'yellow';
+        });
+
+    </script>
+</body>
+
+</html>

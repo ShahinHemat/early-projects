@@ -1,0 +1,51 @@
+$button-weight: bold;
+$button-padding: 15px;
+$button-text-color: white;
+$button-radius: 5px;
+$button-border: none;
+$button-margin-top: 20px;
+$button-font-size: 11px;
+
+.card-container {
+    height: 260px;
+    width: 300px;
+    border: 1px solid black;
+    padding: 0px 15px 0px 15px;
+
+    h2 {
+        font-size: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+   
+    
+    .primary {
+        background-color: #556c2f;
+        color: $button-text-color;
+        font-weight: $button-weight;
+        padding: $button-padding;
+        margin-top: $button-margin-top;
+        border-radius: $button-radius;
+        border: $button-border;
+        font-size: $button-font-size;
+        position: relative;
+        left: 39px;
+    }
+    
+    .secondary {
+        background-color: #333333;
+        color: $button-text-color;
+        font-weight: $button-weight;
+        padding: $button-padding;
+        margin-top: $button-margin-top;
+        border-radius: $button-radius;
+        border: $button-border;
+        font-size: $button-font-size;
+        position: relative;
+        left: 220px;
+    }
+}
+
+
+
+

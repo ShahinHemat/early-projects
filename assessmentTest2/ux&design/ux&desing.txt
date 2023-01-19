@@ -1,0 +1,36 @@
+Exercise 3a)
+
+There are obviously many reasons for why we design on paper. Now I'll mention two that 
+I think are important "business-wise":
+
+First, it can help save a lot of time and money (as time is money). It's cost-effective!
+In the early stages of the design process, you might not know exactly what you want
+and/or how you want things to look like; you want to create a few or a lot of different
+examples. Imagine you wanted to make a few prototype ideas the quickest possible way; 
+using a pen and paper where I can make changes and different versions/iterating in a few minutes would be 
+a lot quicker, as opposed to digitally creating it.
+
+Secondly, pen and paper allows for more creativity. The ink in the pen and the amount of space on your piece of paper
+are the only limitations you have (other than your capacity for creativity). You can allow your imagination
+and creativity to 'spread its wings'. In contrast, you might have a really cool idea that you don't really know how
+to represent digitally. If you know how you imagine the idea(s) to look, on paper you can just draw them out,
+whilst digitally you are not already using more time because you are doing things digitally; but in addition,
+you might have to spend a lot of time figuring out HOW to recreate your vision with the digital tools that are available. 
+
+
+Exercise 3b)
+
+I'll respond shorter here, as I don't think there's that much explanation of each "mention" required here. 
+
+1. You have to consider the laws. In Norway for example, that would be following the guidelines of 'uutilsynet'. 
+2. You know that there will be many websites that run on old versions of code, and you want to make sure 
+that your code can be read by those engines as well. 
+3. You have to think about 'close to everyone'. There are people who have visual impairments: so you want 
+your color contrasts to follow some color-theory, your images to have an alternative text for those who need to use
+a screen reader to understand the content of the images they cannot see, and for example text transcripts for your 
+video contents for those who don't have optimal hearing abilities. (From a business perspective; you risk losing out
+on a large portion of potential customers if they cannot easily access your website and understand its content).
+
+
+
+

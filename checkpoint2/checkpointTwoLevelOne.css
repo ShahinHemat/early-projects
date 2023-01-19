@@ -1,0 +1,94 @@
+/*  https://canvas.academy.se/courses/507/assignments/17244?module_item_id=63423
+
+    Eirik accepted this solution, but advised me 
+    to change text to textarea for element above the button,
+    and to give the container a max-width. 
+
+    In the solution below, I've implemented those two things.
+
+      PS: Eirik also told me that a much simpler solution
+    to this exercise, would be to simply not use grid. 
+    I could have created a div class="container", given it some padding and then put
+    everything else in divs inside of that. That would get rid of the problem
+    that occurs when the size gets too small (the heading wouldn't fall under the first input field).
+*/ 
+
+
+
+
+/* Level 1 Start */ 
+
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffbab5;
+    margin-top: 50px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.container {
+    background: white;
+    border-radius: 2%;
+    max-width: 600px;
+    height: auto;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 50px 50px 50px 50px 50px;
+    grid-template-columns: auto;
+    grid-template-areas: 
+    ". . heading . ."
+    ". name name name ."
+    ". email email email ."
+    ". subject subject subject ."
+    ". message message message ."
+    ". message message message ."
+    ". message message message ."
+    ". message message message ."
+    ". . button . ."; 
+    row-gap: 20px;  
+    
+}
+
+
+.heading {
+    color: #bf3f3f;
+    grid-area: heading;
+    text-align: center;
+    font-weight: bold;
+}
+
+#name {
+    grid-area: name;
+}
+
+#email {
+    grid-area: email;
+}
+
+#subject {
+    grid-area: subject;
+}
+
+#message {
+    grid-area: message;
+    resize: none;
+}
+
+.button {
+    grid-area: button;
+    margin-bottom: 30px;
+    background-image: linear-gradient(to right, #db7272, #bf3f3f);
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px; 
+    border-color: white;
+}
+
+
+
+/* Level 1 End */ 

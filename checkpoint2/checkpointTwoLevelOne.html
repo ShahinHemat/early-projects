@@ -1,0 +1,54 @@
+<!-- https://canvas.academy.se/courses/507/assignments/17244?module_item_id=63423 
+    
+    Eirik accepted this solution, but advised me 
+    to change text to textarea for element above the button,
+    and to give the container a max-width. 
+
+    In the solution below, I've implemented those two things.
+
+    PS: Eirik also told me that a much simpler solution
+    to this exercise, would be to simply not use grid. 
+    I could have created a div class="container", given it some padding and then put
+    everything else in divs inside of that. That would get rid of the problem
+    that occurs when the size gets too small (the heading wouldn't fall under the first input field).
+-->
+
+
+<!-- Level 1 Start -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="checkpointTwoLevelOne.css">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <div class="container">
+
+            <h1 class="heading">FEEDBACK FORM</h1>
+
+            <input type="text" placeholder="Name" id="name">
+
+            <input type="email" placeholder="Email" id="email">
+
+            <input type="text" placeholder="Subject" id="subject">
+            
+            <textarea type="text" placeholder="Message" id="message"></textarea>
+
+            <button class="button">SUBMIT</button>
+
+    </div>
+    
+</body>
+</html>
+
+
+
+<!-- Level 1 End -->
+
